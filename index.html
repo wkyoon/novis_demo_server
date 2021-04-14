@@ -56,6 +56,12 @@
         </style>
     </head>
     <body>
+        <audio id="myAudio">
+            
+            <source src="siren_effect03.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+
         <ul id="messages"></ul>
         <form id="form" action="">
             <input id="input" autocomplete="off" /><button>Send</button>
@@ -63,6 +69,9 @@
         <script src="/socket.io/socket.io.js"></script>
 
         <script>
+
+            var x = document.getElementById("myAudio"); 
+
             var socket = io();
 
             var messages = document.getElementById('messages');
@@ -81,6 +90,7 @@
                 var item = document.createElement('li');
                 item.textContent = msg;
                 messages.appendChild(item);
+                x.play();
                 window.scrollTo(0, document.body.scrollHeight);
             });
 

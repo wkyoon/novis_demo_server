@@ -25,14 +25,13 @@ let interval;
 
 io.on('connection', (socket) => {
     console.log('New client connected');
-    if (interval) {
-        clearInterval(interval);
-    }
-    interval = setInterval(() => getApiAndEmit(socket), 1000);
+    // if (interval) {
+    //     clearInterval(interval);
+    // }
+    //interval = setInterval(() => getApiAndEmit(socket), 1000);
 
     socket.on('chat message', (msg) => {
         console.log(msg);
-
         io.emit('chat message', msg);
     });
 
@@ -43,7 +42,7 @@ io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
         console.log('Client disconnected');
-        clearInterval(interval);
+//        clearInterval(interval);
     });
 });
 
