@@ -12,6 +12,10 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/siren_effect03.mp3', (req, res) => {
+  res.sendFile(__dirname + '/siren_effect03.mp3');
+});
+
 const server = http.createServer(app);
 
 const io = socketIo(server, {
